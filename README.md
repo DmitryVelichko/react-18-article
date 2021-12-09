@@ -85,3 +85,21 @@ function handleClick() {
 ### **Активировать батчинг** 
 
 Активация батчинга в асинхронных операциях будет работать, если используется новый Root API с вызовом метода createRoot.
+
+```
+import ReactDOM from 'react-dom';
+import App from 'App';
+
+const container = document.getElementById('app');
+
+// Старый вариант
+ReactDOM.render(<App />, container);
+
+// Новый вариант
+const root = ReactDOM.createRoot(container);
+
+root.render(<App />);
+
+```
+
+Подробнее про батчинг можно прочитать [здесь](https://github.com/reactwg/react-18/discussions/21).
