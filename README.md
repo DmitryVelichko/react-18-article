@@ -50,4 +50,11 @@
     // И только в конце происходит ререндер
   }
 
+  return (
+    <div>
+      <button onClick={handleClick}>Next</button>
+      <h1 style={{ color: flag ? "blue" : "black" }}>{count}</h1>
+    </div>
+  );
+}
 ```
