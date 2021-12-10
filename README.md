@@ -190,3 +190,19 @@ ReactDOM.render(<App tab="home" />, container);
 const root = ReactDOM.createRoot(container);
 root.render(<App tab="home" />);
 ```
+
+Теперь отдельно создается &laquo;корень&raquo; — указатель верхнеуровневой структуры данных, которую React использует для отслеживания дерева для рендеринга. В предыдущих версиях React &laquo;корень&raquo; был недоступен для пользователя, React прикреплял его к DOM-узлу и никуда не возвращал. В новом Root API изменился метод гидратации контейнера. Теперь вместо hydrate нужно писать hydrateRoot: 
+
+```import * as ReactDOM from 'react-dom';
+import App from 'App';
+
+const container = document.getElementById('app');
+
+// До
+ReactDOM.hydrate(<App tab="home" />, container);
+
+// После
+// Создание и рендер с гидратацией
+const root = ReactDOM.hydrateRoot(container, <App tab="home" />);
+// В отличие от createRoot(), не нужно отдельно вызывать root.render() 
+```
