@@ -224,3 +224,5 @@ const root = ReactDOM.hydrateRoot(container, <App tab="home" />);
 // Обновляем корень приложения
 root.render(<App tab="profile" />);
 ```
+[Более подробно про Root API в теме на Github.](https://github.com/reactwg/react-18/discussions/5)
+
