@@ -176,3 +176,17 @@ Suspense предназначен для отображения запасног
 Идем дальше. В обновлении нас ждут новый Root API и старый (legacy) Root API. Команда React специально оставила старый Root API, чтобы пользователи, которые обновили версию, могли постепенно перейти на новую, сравнивая при этом ее работу со старой. 
 
 Использование старого Root API будет сопровождаться предупреждением в консоли о необходимости переключения на новую версию. Рассмотрим пример с новым Root API и увидим разницу с текущей реализацией:
+
+```
+import * as ReactDOM from 'react-dom';
+import App from 'App';
+
+const container = document.getElementById('app');
+
+// До
+ReactDOM.render(<App tab="home" />, container);
+
+// После
+const root = ReactDOM.createRoot(container);
+root.render(<App tab="home" />);
+```
