@@ -226,3 +226,9 @@ root.render(<App tab="profile" />);
 ```
 [Более подробно про Root API в теме на Github.](https://github.com/reactwg/react-18/discussions/5)
 
+## 3. Новинки SSR
+
+В React 18 были также внесены большие улучшения в Server-Side Rendering (SSR).
+
+### **Выборочная гидратация**
+
