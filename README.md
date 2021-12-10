@@ -212,3 +212,15 @@ const root = ReactDOM.hydrateRoot(container, <App tab="home" />);
 Дело в том, что первый рендер клиента является особенным и требует соответствия с серверным деревом.
 
 Если надо обновить &laquo;корень&raquo; приложения после гидратации, можно сохранить его в переменную и вызывать render():
+
+```import * as ReactDOM from 'react-dom';
+import App from 'App';
+
+const container = document.getElementById('app');
+
+// Создаем и рендерим корень с гидратацией
+const root = ReactDOM.hydrateRoot(container, <App tab="home" />);
+
+// Обновляем корень приложения
+root.render(<App tab="profile" />);
+```
