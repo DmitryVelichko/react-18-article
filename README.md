@@ -458,3 +458,13 @@ Time:        0.612 s, estimated 1 s
 1. Установить библиотеку `react-test-renderer` можно с помощью следующих команд:
 
 `npm install -D react-test-renderer` или `yarn add -D react-test-renderer`
+
+2. В файле `package.json` в разделе `dependencies` у вас должны появится следующая зависимость:
+
+```json
+  "devDependencies": {
+    "react-test-renderer": "^17.0.2" // // Версия пакета в вашем конкретном случае могут отличаться.
+  }
+```
+
+Пакет `react-test-renderer` облегчает получение снимка иерархии представления (чем-то похожего на DOM-дерево), отрендеренного компонентом React DOM.
