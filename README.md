@@ -452,3 +452,9 @@ Time:        0.612 s, estimated 1 s
 ```
 
 Ссылка на [официальную документацию](https://testing-library.com/docs/react-testing-library/intro/) по использованию библиотеки `React Testing Library` в проектах.
+
+### Unit-тестирование с помощью `react-test-renderer`
+
+1. Установить библиотеку `react-test-renderer` можно с помощью следующих команд:
+
+`npm install -D react-test-renderer` или `yarn add -D react-test-renderer`
