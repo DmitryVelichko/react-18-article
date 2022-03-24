@@ -422,3 +422,33 @@ React Testing Library является подмножеством семейст
 * `@testing-library/react`: предоставляет API для тестирования React-приложений.
 
 * `@testing-library/user-event`: обеспечивает расширенную симуляцию взаимодействия с браузером.
+
+5. Создадим файл `Component.test.tsx` и напишем тест для компонента `Component`:
+
+```ts
+import React from 'react';
+import { render } from '@testing-library/react';
+import Component from './Component';
+
+describe("Компонент Component", () => {
+  test("Компонент Component рендерится корректно", () => {
+    const { getByText } = render(<Component />); // Метод render() отображает компонент <Component /> и возвращает объект, который деструктурирован для запроса getByText. Этот запрос находит элементы в DOM по их отображаемому тексту.
+    expect(getByText(/Искомый текст/i)).toBeInTheDocument(); // Текст сопоставляется с регулярным выражением /искомый текст/i. Флаг i делает регулярное выражение не чувствительным к регистру. Здесь мы ожидаем, что 'искомый текст' будет найден в документе.
+  });
+});
+```
+
+6. Сохраним файл и запустим тесты с помощью команды `yarn test`.
+
+После запуска можем посмотреть в терминале отчет о работе теста:
+
+```
+     ✓ Компонент Component (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.612 s, estimated 1 s
+```
+
+Ссылка на [официальную документацию](https://testing-library.com/docs/react-testing-library/intro/) по использованию библиотеки `React Testing Library` в проектах.
