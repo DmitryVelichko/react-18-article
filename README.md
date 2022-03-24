@@ -388,6 +388,8 @@ Time:        0.507 s, estimated 1 s
 
 
 Ссылка на [официальную документацию](https://jestjs.io/ru/) по использованию Jest в проектах.
+
+
 ### Unit-тестирование с помощью `React Testing Library`
 
 React Testing Library является подмножеством семейства пакетов @testing-library.
@@ -405,6 +407,7 @@ React Testing Library является подмножеством семейст
 3. И затем установите библиотеку `@testing-library/user-event` с помощью команды:
 
 `npm install -D @testing-library/user-event` или `yarn add -D @testing-library/user-event`
+
 
 4. В файле `package.json` в разделе `dependencies` у вас должны появится следующие зависимости:
 
@@ -468,3 +471,36 @@ Time:        0.612 s, estimated 1 s
 ```
 
 Пакет `react-test-renderer` облегчает получение снимка иерархии представления (чем-то похожего на DOM-дерево), отрендеренного компонентом React DOM.
+
+3. Создадим файл `Component.test.tsx` и напишем тест для компонента `Component`:
+
+```ts
+import React from 'react';
+import { testComponentRender } from '../../../utils/testingUtils';
+import renderer from 'react-test-renderer';
+
+describe('Компонент Component', () => {
+  testComponentRender(renderComponent); // Рендерим компонент
+
+  it('snapshot совпадает', () => {
+    const tree = renderer.create(<Component />).toJSON();
+
+    expect(tree).toMatchSnapshot(); // Проверяем отрендеренный компонент на соответствие снимку (snapshot-y) компонента.
+  });
+```
+
+
+4. Сохраним файл и запустим тесты с помощью команды `yarn test`.
+
+После запуска можем посмотреть в терминале отчет о работе теста:
+
+```
+     ✓ Компонент Component (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.429 s, estimated 1 s
+```
+
+Ссылка на [официальную документацию](https://ru.reactjs.org/docs/test-renderer.html) по использованию библиотеки `react-test-renderer` в проектах.
