@@ -388,3 +388,37 @@ Time:        0.507 s, estimated 1 s
 
 
 Ссылка на [официальную документацию](https://jestjs.io/ru/) по использованию Jest в проектах.
+### Unit-тестирование с помощью `React Testing Library`
+
+React Testing Library является подмножеством семейства пакетов @testing-library.
+
+1. Установить библиотеку `@testing-library/react` можно с помощью следующих команд:
+
+`npm install -D @testing-library/react` или `yarn add -D @testing-library/react`
+
+
+2. Далее установите библиотеку `@testing-library/jest-dom` с помощью команды:
+
+`npm install -D @testing-library/jest-dom` или `yarn add -D @testing-library/jest-dom`
+
+
+3. И затем установите библиотеку `@testing-library/user-event` с помощью команды:
+
+`npm install -D @testing-library/user-event` или `yarn add -D @testing-library/user-event`
+
+4. В файле `package.json` в разделе `dependencies` у вас должны появится следующие зависимости:
+
+```json
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4", // Версии пакетов в вашем конкретном случае могут отличаться.
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+  }
+```
+Данные пакеты предназначены специально для тестирования.
+
+* `@testing-library/jest-dom`: предоставляет специальные средства сопоставления элементов DOM для Jest.
+
+* `@testing-library/react`: предоставляет API для тестирования React-приложений.
+
+* `@testing-library/user-event`: обеспечивает расширенную симуляцию взаимодействия с браузером.
