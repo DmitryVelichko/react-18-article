@@ -565,3 +565,17 @@ GNIVC QM состоит из двух основных блоков:
 Например, вот так мы можем сгенирировать исполняемый файл для платформы macOS, node 14-й версии:
 
 `pkg packages/qm-cli/index.js -t node14-macos`
+
+3. Для запуска исполняемого файла следует ввести в командной строке команду на запуск, например, для Windows это будет `.\qm.exe`.
+
+В консоли появится полный список опций, которые можно будет применить для запуска определенных проверок:
+
+```s
+Commands:
+  run-tests [options]     Run tests
+  run-linting [options]   Run Linting
+  run-analysis [options]  Run Analysis
+  project [options]       Projects managing in QM
+  part [options]          Projects parts managing in QM
+  help [command]          display help for command
+  ```
