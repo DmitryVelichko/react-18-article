@@ -691,4 +691,29 @@ steps:
       branch:
         - master
 
+  - name: deploy
+    image: docker.gnivc.ru/front-dev-manager:1.0.4
+    volumes:
+      - name: demos
+        path: /var/www/demos
+    commands:
+      - front-dev-manager build --repo-url ${DRONE_REPO_LINK} --repo-ref ${DRONE_BRANCH} --run-deploy
+    depends_on:
+      - linting
+      - unit-testing
+	    - e2e-testing
+    when:
+      branch:
+        - master
+        - develop
+        - feature/*-demo
 
+trigger:
+  event:
+    exclude:
+      - pull_request
+  branch:
+    - master
+    - develop
+    - feature/*
+```
