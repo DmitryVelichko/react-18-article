@@ -649,3 +649,46 @@ Commands:
 CI/CD (Continuous Integration, Continuous Delivery — непрерывная интеграция, непрерывная поставка) — это технология автоматизации тестирования и поставки новых модулей разрабатываемого проекта заинтересованным сторонам (разработчики, аналитики, инженеры качества, конечные пользователи и др.).
 Чтобы выполнить все QM-проверки и отобразить результаты в Grafana, нужно в корне проекта создать файл `.drone.yml` *(точка в названии)* и настроить должным образом.  
 Рекомендуется отправлять результаты проверок на сервер только для ветки `master`.
+
+```yml
+kind: pipeline
+type: docker
+name: ui-constructor-frontend
+
+steps:
+  - name: install
+    image: docker.gnivc.ru/front-dev-manager:1.0.4
+    commands:
+      - yarn install
+
+  - name: linting
+    image: docker.gnivc.ru/qm:1.1.0
+    commands:
+      - qm run-linting --ci
+    depends_on:
+      - install
+    when:
+      branch:
+        - master
+
+  - name: unit-testing
+    image: docker.gnivc.ru/qm:1.1.0
+    commands:
+      - qm run-tests --type unit --ci
+    depends_on:
+      - install
+    when:
+      branch:
+        - master
+	 
+  - name: e2e-testing
+    image: docker.gnivc.ru/qm:1.1.0
+    commands:
+      - qm run-tests --type e2e --ci
+    depends_on:
+      - install
+    when:
+      branch:
+        - master
+
+
