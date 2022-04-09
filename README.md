@@ -866,3 +866,10 @@ const util = require('util');
 const path = require('path');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
+
+const exec = util.promisify(require('child_process').exec);
+const readFile = util.promisify(require('fs').readFile);
+const rm = util.promisify(require('fs').rm);
+
+// Имя файла с результатами проверки
+const filename = './qm-unit-testing.json';
