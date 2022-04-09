@@ -873,3 +873,20 @@ const rm = util.promisify(require('fs').rm);
 
 // Имя файла с результатами проверки
 const filename = './qm-unit-testing.json';
+
+const run = async (ci) => {
+  // Устанавливаем необходимые пакеты для работы нашей проверки
+  const installJest = async () => {
+    await exec(`yarn add -D jest`);
+  };
+  
+  const run = async (ci) => {
+  // Устанавливаем необходимые пакеты для работы нашей проверки
+  const installJest = async () => {
+    await exec(`yarn add -D jest`);
+  };
+  
+    // Команда запуска проверки
+  const runYarnReactScripts = async () => {
+    await exec(`yarn react-scripts test --json=true ${ci ? '' : '--watchAll=false'} --outputFile=${filename}`); 
+  };
