@@ -822,3 +822,18 @@ program
   .option('--console', 'Output in console', true) // Флаг для вывода результатов в консоль
   .action(async (...args) => { // args - флаги, добавленные при запуске команды run-tests
     const { ci, console: toConsole, type } = args[0];
+
+  console.log('>>>> Run Tests <<<<');
+    if (type === 'unit') {
+      console.log('>>>> Run Unit Tests <<<<');
+      await unitTestingHandler(ci, toConsole); // Код функции указан ниже
+      console.log('>>>> Unit Tests Finished <<<<');
+    }
+    if (type === 'e2e') {
+      console.log('>>>> Run E2E Tests <<<<');
+      await e2eTestingHandler(ci, toConsole);
+      console.log('>>>> E2E Tests Finished <<<<');
+    }
+    console.log('>>>> Tests Finished <<<<');
+  });
+```
