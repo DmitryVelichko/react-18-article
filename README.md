@@ -837,3 +837,18 @@ program
     console.log('>>>> Tests Finished <<<<');
   });
 ```
+
+`unitTestingHandler()`:
+```js
+const unitTestingHandler = async (ci, toConsole) => {
+  const { metrics, log } = await unitTestingRun(ci); // Функция с логикой данной проверки (ниже)
+  if (toConsole) {
+    if (!metrics.numFailedTests) {
+      console.info('All unit testing success');
+      console.log(metrics);
+    } else {
+      log();
+    }
+  }
+};
+```
