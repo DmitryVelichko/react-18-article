@@ -852,3 +852,8 @@ const unitTestingHandler = async (ci, toConsole) => {
   }
 };
 ```
+
+### Основная логика проверки
+
+Основной код должен находиться по адресу `packages/qm-core-название-проверки/index.js`  
+У команды `run-tests` существует два подтипа проверки - **unit** и **e2e**, мы рассмотрим только **unit** - `packages/qm-core-jest-unit-testing/index.js`:
