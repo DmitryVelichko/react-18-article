@@ -857,3 +857,12 @@ const unitTestingHandler = async (ci, toConsole) => {
 
 Основной код должен находиться по адресу `packages/qm-core-название-проверки/index.js`  
 У команды `run-tests` существует два подтипа проверки - **unit** и **e2e**, мы рассмотрим только **unit** - `packages/qm-core-jest-unit-testing/index.js`:
+
+
+```js
+const _ = require('lodash');
+const {sendMetricHighLevel} = require('@sandbox/qm-core-monitoring');
+const util = require('util');
+const path = require('path');
+const fs = require('fs');
+const jsonfile = require('jsonfile');
