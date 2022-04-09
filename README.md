@@ -812,4 +812,13 @@ QM можно установить на свой собственный серв
 
 В проекте [QM](https://dev.gnivc.ru/gnivc/qm/src/branch/last) CLI-команды находятся в файле `packages/qm-cli/index.js`:
 
-
+```js
+program
+  .command('run-tests') // Название команды
+  .description('Run tests') // Описание команды
+  .option('-p, --platform <platform>', 'Platform', 'node') // Флаг для платформы (node, go, ...)
+  .option('-t, --type <type>', 'Test type', 'unit') // Флаг для типа тестов
+  .option('--ci', 'Run ci', false)  // Флаг для вывода результатов проверки в Grafana
+  .option('--console', 'Output in console', true) // Флаг для вывода результатов в консоль
+  .action(async (...args) => { // args - флаги, добавленные при запуске команды run-tests
+    const { ci, console: toConsole, type } = args[0];
