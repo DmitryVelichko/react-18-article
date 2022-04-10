@@ -912,4 +912,11 @@ const run = async (ci) => {
       await runYarnReactScripts();
     } else if (_.has(packageJsonAsObject, 'devDependencies.jest')) {
       await runYarnJest();
-    } 
+    } else {
+      console.log('Cannot find both react-scripts and jest in devDependencies. Cannot run the tests');
+    }
+  } catch (run_error) {
+    console.log(run_error);
+  }
+
+  let json = {};
