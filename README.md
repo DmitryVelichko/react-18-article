@@ -898,3 +898,7 @@ const run = async (ci) => {
   try {
     const pathToPackageJson = path.join(process.cwd(), 'package.json');
   
+   // Если package.json не найден, устанавливаем необходимые пакеты
+    if (!fs.existsSync(pathToPackageJson)) {
+      await installJest();
+    }
