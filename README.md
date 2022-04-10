@@ -920,3 +920,15 @@ const run = async (ci) => {
   }
 
   let json = {};
+
+  // Читаем файл с результатами проверки и записываем данные в переменную json
+  try {
+    const result = await readFile(filename);
+    json = JSON.parse(result);
+  } catch (parse_error) {
+    console.error(parse_error.message);
+    return;
+  } finally {
+    // В конце удаляем файл с результатами проверки
+    await rm(filename);
+  }
