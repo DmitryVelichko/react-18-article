@@ -890,3 +890,11 @@ const run = async (ci) => {
   const runYarnReactScripts = async () => {
     await exec(`yarn react-scripts test --json=true ${ci ? '' : '--watchAll=false'} --outputFile=${filename}`); 
   };
+  
+  // Еще одна команда запуска проверки
+  const runYarnJest = async () => {
+    await exec(`yarn jest --json=true ${ci ? '' : '--watchAll=false'} --outputFile=${filename}`); 
+  };
+  try {
+    const pathToPackageJson = path.join(process.cwd(), 'package.json');
+  
