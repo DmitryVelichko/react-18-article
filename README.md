@@ -932,3 +932,18 @@ const run = async (ci) => {
     // В конце удаляем файл с результатами проверки
     await rm(filename);
   }
+
+/ Создаем объект со всеми необходимыми результатами проверки,
+  // которые вытаскиваем из переменной json
+  const metrics = {
+    unitNumFailedTestSuites: json.numFailedTestSuites,
+    unitNumFailedTests: json.numFailedTests,
+    unitNumPassedTestSuites: json.numPassedTestSuites,
+    unitNumPassedTests: json.numPassedTests,
+    unitNumPendingTestSuites: json.numPendingTestSuites,
+    unitNumPendingTests: json.numPendingTests,
+    unitNumRuntimeErrorTestSuites: json.numRuntimeErrorTestSuites,
+    unitNumTodoTests: json.numTodoTests,
+    unitNumTotalTestSuites: json.numTotalTestSuites,
+    unitNumTotalTests: json.numTotalTests,
+  }
