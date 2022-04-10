@@ -902,3 +902,14 @@ const run = async (ci) => {
     if (!fs.existsSync(pathToPackageJson)) {
       await installJest();
     }
+
+
+// Получаем package.json
+    const packageJsonAsObject = jsonfile.readFileSync(pathToPackageJson);
+
+    // В зависимости от установленных пакетов запускаем ту или иную команду проверки
+    if ((_.has(packageJsonAsObject, 'devDependencies.react-scripts') || _.has(packageJsonAsObject, 'dependencies.react-scripts')) && _.has(packageJsonAsObject, 'dependencies.react')) {
+      await runYarnReactScripts();
+    } else if (_.has(packageJsonAsObject, 'devDependencies.jest')) {
+      await runYarnJest();
+    } 
