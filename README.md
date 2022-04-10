@@ -947,3 +947,17 @@ const run = async (ci) => {
     unitNumTotalTestSuites: json.numTotalTestSuites,
     unitNumTotalTests: json.numTotalTests,
   }
+
+
+  // Если установлен флаг --ci, отправляем результаты проверки на сервер
+  // Они будут отображены на дашборде Grafana
+  if (ci) {
+    await sendMetricHighLevel('unit-testing', metrics);
+  }
+
+  return {
+    metrics,
+    log: () => console.log(json),
+  }
+};
+```
