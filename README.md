@@ -971,3 +971,11 @@ const run = async (ci) => {
 ### Подключение новых метрик в Grafana
 
 Данный раздел не является полной документацией к Grafana, здесь показано как создать новую панель и подключить к ней новую метрику. [Официальная документация](https://grafana.com/docs/grafana/latest/).
+
+**Заходим в Grafana и создаем новый дашборд или папку с новым дашбордом:**
+
+![grafana](https://i.ibb.co/tbHdMP8/create-Dashboard.png)
+
+**Нажимаем на кнопку "Add panel" и выбираем нужный нам вариант:**
+
+![grafana](https://i.ibb.co/4tddW2g/create-New-Panel.png)
